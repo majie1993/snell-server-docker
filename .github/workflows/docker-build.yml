@@ -58,13 +58,12 @@ jobs:
       with:
         images: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}
         tags: |
-          type=ref,event=branch
           type=ref,event=pr
           type=semver,pattern={{version}}
           type=semver,pattern={{major}}.{{minor}}
           type=semver,pattern={{major}}
-          type=raw,value=${{ steps.version.outputs.snell_version }},enable=${{ github.event_name == 'workflow_dispatch' }}
-          type=raw,value=latest,enable={{is_default_branch}}
+          type=raw,value=${{ steps.version.outputs.snell_version }}
+          type=raw,value=latest
 
     - name: Build and push Docker image
       uses: docker/build-push-action@v5
