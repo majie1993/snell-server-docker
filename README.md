@@ -20,7 +20,6 @@ EOF
 ### 2. Docker Compose
 
 ```yaml
-version: '3.8'
 services:
   snell-server:
     image: waterwood/snell-server:latest
