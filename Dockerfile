@@ -1,6 +1,6 @@
 # 多阶段构建 - 下载并解压
 FROM alpine:latest AS downloader
-ARG SNELL_VERSION=v5.0.0b1
+ARG SNELL_VERSION=v5.0.0b2
 RUN apk add --no-cache wget unzip
 WORKDIR /tmp
 RUN wget https://dl.nssurge.com/snell/snell-server-${SNELL_VERSION}-linux-amd64.zip \
